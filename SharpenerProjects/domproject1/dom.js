@@ -25,10 +25,23 @@
 
 // header.style.borderBottom = 'solid 3px black';
 
-var title = document.getElementsByClassName('title')[0];
+// var title = document.getElementsByClassName('title')[0];
 
 
-title.style.color = 'green';
-title.style.fontWeight = 'bold';
+// title.style.color = 'green';
+// title.style.fontWeight = 'bold';
 
-console.log(title);
+// console.log(title);
+
+var items = document.getElementsByClassName('list-group-item');
+// console.log(items);
+// console.log(items[1]);
+// items[1].textContent = "hello";
+
+// items[1].style.fontWeight = 'bold';
+items[2].style.backgroundColor = 'green';
+
+for(var i=0; i<items.size(); i++){
+
+    items[i].style.fontWeight = 'bold';
+}
