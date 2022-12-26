@@ -33,15 +33,29 @@
 
 // console.log(title);
 
-var items = document.getElementsByClassName('list-group-item');
-// console.log(items);
-// console.log(items[1]);
-// items[1].textContent = "hello";
+// var items = document.getElementsByClassName('list-group-item');
+// // console.log(items);
+// // console.log(items[1]);
+// // items[1].textContent = "hello";
 
-// items[1].style.fontWeight = 'bold';
-items[2].style.backgroundColor = 'green';
+// // items[1].style.fontWeight = 'bold';
+// items[2].style.backgroundColor = 'green';
 
-for(var i=0; i<items.size(); i++){
+// for(var i=0; i<items.size(); i++){
 
-    items[i].style.fontWeight = 'bold';
+//     items[i].style.fontWeight = 'bold';
+// }
+
+
+var li = document.getElementsByTagName('li');
+console.log(li);
+console.log(li[1]);
+li[1].textContent = "hello 2";
+
+li[1].style.fontWeight = 'bold';
+li[2].style.backgroundColor = 'green';
+
+for(var i=0; i<li.size(); i++){
+
+    li[i].style.fontWeight = 'bold';
 }
