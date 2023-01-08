@@ -1,6 +1,9 @@
 var form = document.querySelector('form');
 var items = document.getElementById('itemList');
 
+var text1 = document.getElementById('text1');
+var text2 = document.getElementById('text2');
+
 form.addEventListener('submit',onsubmit);
 
 function onsubmit(e){
@@ -48,6 +51,7 @@ function onsubmit(e){
      li.appendChild(delet);
 
      li.childNodes[4].addEventListener('click',deleteclick);
+     li.childNodes[3].addEventListener('click',editClick);
 
 
      items.appendChild(li);
@@ -83,4 +87,15 @@ function onsubmit(e){
     .catch((err)=>{
         console.log(err)
     })
+ }
+
+ function editClick(event){
+
+    event.preventDefault();
+
+    text1.value = event.target.parentNode.childNodes[0].textContent;
+    text2.value = event.target.parentNode.childNodes[2].textContent;
+
+      deleteclick(event);
+
  }
