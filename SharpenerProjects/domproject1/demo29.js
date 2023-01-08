@@ -29,9 +29,26 @@ function onsubmit(e){
      let nameChild = document.createTextNode(realObj.username);
      let emailChild = document.createTextNode(realObj.userEmail);
 
+
+     let edit= document.createElement("BUTTON");
+     let edittext = document.createTextNode("EDIT");
+     edit.setAttribute("id",realObj._id);
+     edit.appendChild(edittext);
+ 
+     let delet= document.createElement("BUTTON");
+     let deletetext = document.createTextNode("DELETE");
+     delet.setAttribute("id",realObj._id);
+     delet.appendChild(deletetext);
+ 
+
        li.appendChild(nameChild);
        li.appendChild(document.createTextNode("-"))
      li.appendChild(emailChild);
+     li.appendChild(edit);
+     li.appendChild(delet);
+
+     li.childNodes[4].addEventListener('click',deleteclick);
+
 
      items.appendChild(li);
  }
@@ -41,7 +58,6 @@ function onsubmit(e){
      
     axios.get("https://crudcrud.com/api/53b92261a9f4406c909aa1f4a7c0aac5/appointmentData")
     .then((response)=>{
-        console.log(response);
         for(var i=0; i<response.data.length; i++){
             showUserOnScreen(response.data[i]);
         }
@@ -50,3 +66,21 @@ function onsubmit(e){
         console.log(error)
     })
  });
+
+ function deleteclick(event){
+    
+    event.preventDefault();
+
+    items.removeChild(event.target.parentNode);
+    let numberId =  (event.target.id);
+   
+    console.log(numberId);
+
+    axios.delete(`https://crudcrud.com/api/53b92261a9f4406c909aa1f4a7c0aac5/appointmentData/${numberId}`)
+    .then((res)=>{
+        console.log(res)
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+ }
