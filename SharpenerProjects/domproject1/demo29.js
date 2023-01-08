@@ -35,3 +35,18 @@ function onsubmit(e){
 
      items.appendChild(li);
  }
+
+
+ window.addEventListener("DOMContentLoaded", ()=>{
+     
+    axios.get("https://crudcrud.com/api/53b92261a9f4406c909aa1f4a7c0aac5/appointmentData")
+    .then((response)=>{
+        console.log(response);
+        for(var i=0; i<response.data.length; i++){
+            showUserOnScreen(response.data[i]);
+        }
+    })
+    .catch((error)=>{
+        console.log(error)
+    })
+ });
