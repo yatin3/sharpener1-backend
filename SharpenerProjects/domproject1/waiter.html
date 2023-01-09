@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>waiter App</title>
+</head>
+<body>
+    
+    <form>
+        <label for="price">Choose a Price:</label>
+        <input type="text" id="price">
+        <label for="dish">Choose Dish:</label>
+        <input type="text" id="dish">
+        <label for="table">Choose a table:</label>
+        <select id="table">
+            <option value="Table1">Table1</option>
+            <option value="Table2">Table2</option>
+            <option value="Table3">Table3</option>
+   </select>
+   <input type="submit" value="Add to bill" id="billButton">
+    </form>
+
+    <h1 id="orders">Orders</h1>
+        <h2 id="Table1ul">Table1</h2>
+        <ul id="Table1">
+      
+        </ul>
+  
+    <h2 id="Table2ul">Table2</h2>
+    <ul id="Table2">
+
+    </ul>
+    
+    <h2 id="Table3ul">Table3</h2>
+    <ul id="Table3">
+
+    </ul>
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <script src="waiter.js"> </script>
+
+</body>
+</html>
