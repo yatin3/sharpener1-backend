@@ -1,6 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+
+const path = require('path');
+
 const app = express();
 
 //added feature of routing
@@ -11,13 +14,18 @@ const shopRoutes = require('./routes/shop');
 
 
 app.use(bodyParser.urlencoded({extended:false}));
+app.use(express.static(path.join(__dirname,'public')));
 
 //added feature of routing
 app.use('/admin',adminRoutes);
 app.use('/shop',shopRoutes);
 
+app.get('/success',(req,res,next)=>{
+   res.send("Form successfully filled");
+});
+
 app.use((req,res,next)=>{ 
-   res.status(404).send('<h1>Page not found</h1>');
+   res.status(404).sendFile(path.join(__dirname,'views','404.html'));
 });
 
 // app.use('/',(req,res,next)=>{ 
